@@ -1,5 +1,4 @@
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
-#pragma comment (lib, "Ws2_32.lib")
 #include <iostream>
 #include <WinSock2.h>
 using namespace std;
@@ -12,6 +11,7 @@ int main()
 	if (WSAStartup(DllVersion, &wsaData) != 0) 
 	{
 		cout << "Winsock clientSocket Failed!" << endl;
+		WSACleanup();
 		return -1;
 	}
 
@@ -33,5 +33,8 @@ int main()
 	{
 		cout << "Error Connecting to Host" << endl;
 	}
+
+	closesocket(clientSocket);
+	WSACleanup();
 	return 0;
 }

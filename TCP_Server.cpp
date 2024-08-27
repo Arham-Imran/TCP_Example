@@ -1,5 +1,4 @@
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
-#pragma comment (lib, "Ws2_32.lib")
 #include <iostream>
 #include <WinSock2.h>
 
